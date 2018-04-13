@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>  
+<class name="coalcamps.models.CoalCamp" table="coal_Camp">  
+          <id name="id">  <!-- dont make class assigned or else must always set -->
+          <!-- auto does not compile -->
+          <generator class="identity"></generator>  
+          </id>          
+          <property name="campName"></property>  
+          <property name="yearBuilt" type="int"></property>  
+          <many-to-one name="companyBuilding" class="coalcamps.models.CoalCompany"
+           not-null="true" cascade="none" /> 
+           <!-- lazy="false"  This prevents lazyInitializationException in toString
+           		but it is very inefficient. -->   
+</class>  
+</hibernate-mapping> 

@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>  
+<class name="coalcamps.models.CampLease" table="camp_Lease">  
+          <id name="id">  
+          <generator class="identity"></generator>  
+          </id>           
+          <many-to-one name="campLeased" class="coalcamps.models.CoalCamp"
+           		not-null="true" cascade="none" /> 
+          <many-to-one name="companyLeasing" class="coalcamps.models.CoalCompany"
+           		not-null="true" cascade="none" /> 
+          <property name="beginYear" type="int" /> 
+          <property name="endYear" type="int" />    
+</class>  
+</hibernate-mapping> 
